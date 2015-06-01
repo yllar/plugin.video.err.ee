@@ -42,15 +42,15 @@ class Err(object):
   def downloadUrl(self,url):
     for retries in range(0, 5):
       try:
-	r = urllib2.Request(url.encode('iso-8859-1', 'replace'))
-	r.add_header('User-Agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2')
-	u = urllib2.urlopen(r, timeout = 30)
-	contents = u.read()
-	u.close()
-	return contents
+        r = urllib2.Request(url.encode('iso-8859-1', 'replace'))
+        r.add_header('User-Agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2')
+        u = urllib2.urlopen(r, timeout = 30)
+        contents = u.read()
+        u.close()
+        return contents
       except Exception, ex:
         if retries > 5:
-	  raise ErrException(ex)
+          raise ErrException(ex)
       
   def listErrCategory(self):
     url = URL
@@ -104,8 +104,8 @@ class Err(object):
       date = s.group(3)
       
       infoLabels = {
-	'date' : date,
-	'title' : title
+        'date' : date,
+        'title' : title
       }
       
       item = xbmcgui.ListItem(title, iconImage = FANART)
@@ -125,7 +125,7 @@ class Err(object):
     if html:
       key = re.search('data">([^<]+).MXF</', html, re.DOTALL)
       if key:
-	return key.group(1) + '.flv'
+        return key.group(1) + '.flv'
     else:
       raise ErrException(ADDON.getLocalizedString(202))
 
