@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 # -*- coding:utf-8-*-
 #
-#      Copyright (C) 2012 Yllar Pajus
-#      http://loru.mine.nu
+#      Copyright (C) 2015 Yllar Pajus
+#      http://pilves.eu
 #
 #  This Program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -160,7 +160,7 @@ if __name__ == '__main__':
     os.makedirs(CACHE_PATH)
     
 
-  buggalo.SUBMIT_URL = 'http://loru.mine.nu/exception/submit.php'
+  buggalo.SUBMIT_URL = 'https://pilves.eu/exception/submit.php'
   
   ErrAddon = Err()
   try:
