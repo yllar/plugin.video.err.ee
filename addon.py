@@ -49,7 +49,7 @@ class Err(object):
         u.close()
         return contents
       except Exception, ex:
-        if retries > 5:
+        if retries >= 4:
           raise ErrException(ex)
       
   def listErrCategory(self):
