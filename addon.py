@@ -123,15 +123,15 @@ class Err(object):
     html = self.downloadUrl(url)
     
     if html:
-      key = re.search('data">([^<]+).MXF</', html, re.DOTALL|re.IGNORECASE)
+      key = re.search('hls\': \'([^<]+)\'}', html, re.DOTALL|re.IGNORECASE)
       if key:
         # NOTE: .mp4 works as well
-        return key.group(1) + '.flv'
+        return 'https:' + key.group(1)
     else:
       raise ErrException(ADDON.getLocalizedString(202))
 
   def playStream(self,saade):
-    url = 'rtmp://media.err.ee/arhiiv/%s' % self.getMediaKey(saade)
+    url = self.getMediaKey(saade)
     buggalo.addExtraData('url', url)
     playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
     playlist.clear()
