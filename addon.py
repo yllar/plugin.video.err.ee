@@ -123,7 +123,7 @@ class Err(object):
     html = self.downloadUrl(url)
     
     if html:
-      key = re.search('hls\': \'([^<]+)\'}', html, re.DOTALL|re.IGNORECASE)
+      key = re.search("var src = '(.*)'", html)
       if key:
         # NOTE: .mp4 works as well
         return 'https:' + key.group(1)
